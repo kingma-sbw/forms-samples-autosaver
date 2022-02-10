@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="scripts/autosave-form.js" defer></script>
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Form Fetch</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<main>
+		<form id="mainForm" action="save.php?action=save" method="post">
+			<header><h2>Anmeldung</h2></header>
+			<label for="name">Name</label>
+			<input id="name" type="text" name="name" title="Kompletter Name einfügen">
+			
+			<label for="email">E-Mail</label>
+			<input id="email" type="email" name="email" title="Email-Addresse haben einen @ und mindestens ein ."">
+			
+			<label for="birthday">Geburtstag</label>
+			<input id="birthday" type="date" name="birthday" value="1980-01-01" maxvalue="2006-31-21" title="Geburtsdatum">
+
+			<label for="farbe">Favourite Farbe</label>
+			<input id="farbe" type="color" name="farbe">
+
+			<label for="lang">Lieblihngssprache</label>
+			<select id="lang" name="lang">
+				<option value="de">German
+				<option value="fr">Franz
+				<option value="en">Anglais
+				<option value="nl">Nederlands
+			</select>
+		
+		
+
+			<button id="saveButton">Speichern</button>
+			
+		</form>
+	</main>
+</body>
+
+</html>
