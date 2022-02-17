@@ -36,7 +36,9 @@ input:focus {
   box-sizing: 0;
   animation: input-shadow 2s infinite;
 }
-
+input:invalid {
+  background-color: darkcyan;
+}
 input[type=color] {
   background-color: inherit;
   border: hidden;
