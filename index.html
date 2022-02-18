@@ -44,3 +44,36 @@
 </body>
 
 </html>
+<script>
+var nameElement = document.getElementById('name');
+nameElement.onchange = testName;
+
+function testName() {
+	if(nameElement.value.length < 3) {
+		nameElement.classList.add('warning');
+	} else {
+		nameElement.classList.remove('warning');
+	}
+}
+
+var emailElement = document.getElementById('email');
+emailElement.onchange = testEmail;
+
+function testEmail() {
+	if( isEmailValid(emailElement.value) ) {
+		emailElement.classList.remove('warning');
+	} else {
+		emailElement.classList.add('warning');
+	}
+}
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+</script>
+<style>
+	.warning {
+		background-color: rebeccapurple;
+	}
+</style>
