@@ -45,7 +45,7 @@ try {
 <body>
   <?php if($obj) : ?>
 		<form id="mainForm" action="save.php?action=save" method="post">
-			<header><h2>Anmeldung</h2></header>
+			<header><h2>Erfolgreich angemeldet</h2></header>
 			<label for="name">Name</label>
 			<input readonly value="<?=$obj-> name?>" id="name" type="text" name="name" title="Kompletter Name einfügen" >
 			
