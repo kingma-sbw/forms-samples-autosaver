@@ -3,7 +3,7 @@
 Verwendet wird localStorage also ohne Server
 
 ## Test Database
-In PGR Verfahren werden Daten im Datenbank gespeichert und wieder ausgelesen.
+In PRG (Post Redirect Get [wikipedia](https://de.wikipedia.org/wiki/Post/Redirect/Get)) Verfahren werden Daten im Datenbank gespeichert und wieder angezeigt.
 
 ```
 CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
