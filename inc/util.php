@@ -13,20 +13,22 @@ if( !isset($log_file) ) {
  * @return void
  */
 
-const emerg=1;
-const alert=2;
-const crit=3;
-const err=4;
-const warning=5;
-const notice=6;
-const info=7;
-const debug=8;
-const none=9;
+const none=0;
+const fatal=1;
+const err=2;
+const warning=3;
+const info=4;
+const debug=5;
+const trace=6;
+const all=7;
 
-const level=3;
+const level=7;
 
-function _log( string $mess, int $level = 4 ):void {
-  if($level<=level) return;
+const errorMessage = ['off', 'fatal', 'error', 'warning', 'info', 'debug', 'trace', ''];
+
+function _log( string $mess, int $level = info ): void{
+  if( $level>level )
+    return;
 
   $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,1)[0];
 
@@ -35,5 +37,14 @@ function _log( string $mess, int $level = 4 ):void {
   if( !$log_file_handle ) {
     $log_file_handle = fopen( sprintf($log_file, date("Ymd")), 'a' );
   }
-  fprintf( $log_file_handle, "%s:%d %s;%s;%s\r" , $trace['file'],$trace['line'], (new \DateTime)-> format("Y-m-d H:i:s.u"), $level, $mess );
+  fprintf( $log_file_handle, "%s#%d:%s;%s;%s\r"
+  , $trace['file']
+  , $trace['line']
+  , (new \DateTime)-> format("Y-m-d H:i:s.u")
+  , errorMessage[$level]
+  , $mess );
 }
+
+_log('connect',4);
+$db = new \PDO("mysql:dbname=test", 'test', 'test',
+  [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC]);
